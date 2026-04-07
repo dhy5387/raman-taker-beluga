@@ -34,7 +34,19 @@ function App() {
       {/* 작업물 */}
       <section className="section" id="works">
         <h2 className="section-title">작업물</h2>
-        <p className="empty-note">작업물을 준비 중입니다.</p>
+        <div className="gallery">
+          {[
+            'https://i.imgur.com/EPDjygl.jpeg',
+            'https://i.imgur.com/buqSGhR.jpeg',
+            'https://i.imgur.com/kWEMNPk.jpeg',
+            'https://i.imgur.com/6RYAn3c.png',
+            'https://i.imgur.com/nAQonrf.jpeg',
+          ].map((src, i) => (
+            <div key={i} className="gallery-item" onClick={() => window.open(src, '_blank')}>
+              <img src={src} alt={`작업물 ${i + 1}`} loading="lazy" />
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* 기술 스택 */}
