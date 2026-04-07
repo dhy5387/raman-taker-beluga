@@ -97,6 +97,7 @@ ul { list-style: none; padding: 0; }
   box-shadow: 0 12px 32px rgba(6,182,212,0.2);
 }
 
+.gallery-item video,
 .gallery-item img {
   width: 100%;
   height: 100%;

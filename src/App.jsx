@@ -36,14 +36,19 @@ function App() {
         <h2 className="section-title">작업물</h2>
         <div className="gallery">
           {[
-            'https://i.imgur.com/EPDjygl.jpeg',
-            'https://i.imgur.com/buqSGhR.jpeg',
-            'https://i.imgur.com/kWEMNPk.jpeg',
-            'https://i.imgur.com/6RYAn3c.png',
-            'https://i.imgur.com/nAQonrf.jpeg',
-          ].map((src, i) => (
-            <div key={i} className="gallery-item" onClick={() => window.open(src, '_blank')}>
-              <img src={src} alt={`작업물 ${i + 1}`} loading="lazy" />
+            { src: 'https://i.imgur.com/EPDjygl.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/buqSGhR.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/kWEMNPk.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/6RYAn3c.png',  type: 'image' },
+            { src: 'https://i.imgur.com/nAQonrf.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/ZDdlERx.mp4',  type: 'video' },
+          ].map((item, i) => (
+            <div key={i} className="gallery-item">
+              {item.type === 'video' ? (
+                <video src={item.src} controls muted loop playsInline />
+              ) : (
+                <img src={item.src} alt={`작업물 ${i + 1}`} loading="lazy" onClick={() => window.open(item.src, '_blank')} />
+              )}
             </div>
           ))}
         </div>
