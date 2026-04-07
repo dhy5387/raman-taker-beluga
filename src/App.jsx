@@ -81,7 +81,7 @@ function App() {
         <p className="contact-desc">협업 제안이나 문의는 편하게 남겨주세요.</p>
         <form
           className="contact-form"
-          action="https://formspree.io/f/mzdkeag"
+          action="https://formspree.io/f/mzdkeagl"
           method="POST"
           onSubmit={async (e) => {
             e.preventDefault()
