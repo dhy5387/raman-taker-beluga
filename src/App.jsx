@@ -35,6 +35,22 @@ function App() {
       <section className="section" id="works">
         <h2 className="section-title">작업물 샘플</h2>
         <div className="gallery">
+          {[
+            { src: 'https://i.imgur.com/EPDjygl.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/buqSGhR.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/kWEMNPk.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/6RYAn3c.png',  type: 'image' },
+            { src: 'https://i.imgur.com/nAQonrf.jpeg', type: 'image' },
+            { src: 'https://i.imgur.com/ZDdlERx.mp4',  type: 'video' },
+          ].map((item, i) => (
+            <div key={i} className="gallery-item">
+              {item.type === 'video' ? (
+                <video src={item.src} controls muted loop playsInline />
+              ) : (
+                <img src={item.src} alt={`작업물 ${i + 1}`} loading="lazy" onClick={() => window.open(item.src, '_blank')} />
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -42,37 +58,6 @@ function App() {
       <section className="section section-alt" id="skills">
         <h2 className="section-title">사용 툴</h2>
         <div className="skills-grid">
-          <div className="skill-group">
-            <h3 className="skill-group-title">AI 이미지 생성</h3>
-            <div className="skill-tags">
-              <span className="tag">Midjourney</span>
-              <span className="tag">Stable Diffusion</span>
-              <span className="tag">DALL·E</span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3 className="skill-group-title">AI 영상 생성</h3>
-            <div className="skill-tags">
-              <span className="tag">Runway</span>
-              <span className="tag">Pika</span>
-              <span className="tag">Kling</span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3 className="skill-group-title">편집 / 후보정</h3>
-            <div className="skill-tags">
-              <span className="tag">Photoshop</span>
-              <span className="tag">Premiere Pro</span>
-              <span className="tag">CapCut</span>
-            </div>
-          </div>
-          <div className="skill-group">
-            <h3 className="skill-group-title">기타</h3>
-            <div className="skill-tags">
-              <span className="tag">Prompt Engineering</span>
-              <span className="tag">ComfyUI</span>
-            </div>
-          </div>
         </div>
       </section>
 
