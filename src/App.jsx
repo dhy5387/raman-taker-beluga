@@ -10,7 +10,7 @@ function App() {
           <li><a href="#about">소개</a></li>
           <li><a href="#works">작업물</a></li>
           <li><a href="#skills">기술</a></li>
-          <li><a href="#contact">연락처</a></li>
+          <li><a href="#contact">문의</a></li>
         </ul>
       </nav>
 
@@ -92,10 +92,15 @@ function App() {
         </div>
       </section>
 
-      {/* 연락처 */}
+      {/* 문의 */}
       <section className="section" id="contact">
-        <h2 className="section-title">연락처</h2>
-        <p className="contact-desc">협업 제안이나 문의는 편하게 남겨주세요.</p>
+        <h2 className="section-title">문의</h2>
+        <p className="contact-desc">
+          협업 제안이나 사진/동영상 사용에 대한 문의는 아래에 남겨주세요! 빠른 시일 내에 답변 드리겠습니다! 감사합니다.<br />
+          Please leave your collaboration proposals or inquiries about photo/video usage below! I will get back to you as soon as possible! Thank you.<br />
+          コラボのご提案や写真・動画の使用に関するお問い合わせは、下記にお残しください！できる限り早くご返信いたします！ありがとうございます。<br />
+          如有合作提案或关于照片/视频使用的咨询，请在下方留言！我会尽快回复您！谢谢！
+        </p>
         <form
           className="contact-form"
           action="https://formspree.io/f/mzdkeagl"
