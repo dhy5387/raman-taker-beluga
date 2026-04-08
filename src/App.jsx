@@ -96,10 +96,10 @@ function App() {
       <section className="section" id="contact">
         <h2 className="section-title">문의</h2>
         <p className="contact-desc">
-          협업 제안이나 사진/동영상 사용에 대한 문의는 아래에 남겨주세요! 빠른 시일 내에 답변 드리겠습니다! 감사합니다.<br />
-          Please leave your collaboration proposals or inquiries about photo/video usage below! I will get back to you as soon as possible! Thank you.<br />
-          コラボのご提案や写真・動画の使用に関するお問い合わせは、下記にお残しください！できる限り早くご返信いたします！ありがとうございます。<br />
-          如有合作提案或关于照片/视频使用的咨询，请在下方留言！我会尽快回复您！谢谢！
+          협업을 원하시거나 사진/동영상에 대해서 문의를 원하신다면 아래에 본인의 이메일과 함께 문의할 내용을 남겨주세요! 빠른 시일 내에 답변드리겠습니다. 감사합니다!<br />
+          If you'd like to collaborate or have any inquiries about photos/videos, please leave your email along with your message below! I will get back to you as soon as possible. Thank you!<br />
+          コラボをご希望の方や写真・動画についてお問い合わせがある方は、メールアドレスとお問い合わせ内容を下記にお残しください！できる限り早くご返信いたします。ありがとうございます！<br />
+          如果您希望合作或对照片/视频有任何疑问，请在下方留下您的邮箱和咨询内容！我会尽快回复您。谢谢！
         </p>
         <form
           className="contact-form"
