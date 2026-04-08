@@ -33,24 +33,8 @@ function App() {
 
       {/* 작업물 */}
       <section className="section" id="works">
-        <h2 className="section-title">작업물</h2>
+        <h2 className="section-title">작업물 샘플</h2>
         <div className="gallery">
-          {[
-            { src: 'https://i.imgur.com/EPDjygl.jpeg', type: 'image' },
-            { src: 'https://i.imgur.com/buqSGhR.jpeg', type: 'image' },
-            { src: 'https://i.imgur.com/kWEMNPk.jpeg', type: 'image' },
-            { src: 'https://i.imgur.com/6RYAn3c.png',  type: 'image' },
-            { src: 'https://i.imgur.com/nAQonrf.jpeg', type: 'image' },
-            { src: 'https://i.imgur.com/ZDdlERx.mp4',  type: 'video' },
-          ].map((item, i) => (
-            <div key={i} className="gallery-item">
-              {item.type === 'video' ? (
-                <video src={item.src} controls muted loop playsInline />
-              ) : (
-                <img src={item.src} alt={`작업물 ${i + 1}`} loading="lazy" onClick={() => window.open(item.src, '_blank')} />
-              )}
-            </div>
-          ))}
         </div>
       </section>
 
