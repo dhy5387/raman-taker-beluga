@@ -1,8 +1,72 @@
 import './App.css'
 
+const langs = [
+  {
+    flag: '🇰🇷', label: '한국어',
+    greeting: '제 작품에 관심을 가져주셔서 감사합니다!',
+    desc: '협업이나 사진/동영상 관련 문의는 아래 형식에 맞춰\n이메일을 보내주세요!',
+    format: [
+      ['이름', '당신의 이름'],
+      ['목적', 'ex) 사진/동영상에 대한 문의'],
+      ['본인 이메일', '이메일 주소를 입력해주세요'],
+    ],
+    note: '사진은 이메일란에 적힌 주소로 송부되며,\n파일 관련 소통도 해당 이메일에서 진행됩니다.',
+    warning: '⚠️ 형식에 맞지 않은 이메일은 무통보 전부 삭제됩니다 ⚠️',
+  },
+  {
+    flag: '🇺🇸', label: 'English',
+    greeting: 'Thank you for your interest in my work!',
+    desc: 'For collaboration or photo/video inquiries,\nplease email me using the format below!',
+    format: [
+      ['Name', 'Your Name'],
+      ['Purpose', 'ex) Inquiry about photos/videos'],
+      ['Your Email', 'Your email address'],
+    ],
+    note: 'Photos will be sent to the email address you provide,\nand all file-related communication will take place there.',
+    warning: '⚠️ Emails not following the format will be deleted without notice ⚠️',
+  },
+  {
+    flag: '🇯🇵', label: '日本語',
+    greeting: '私の作品にご関心をいただきありがとうございます！',
+    desc: 'コラボや写真・動画のお問い合わせは\n下記の形式でメールをお送りください！',
+    format: [
+      ['お名前', 'あなたのお名前'],
+      ['目的', '例）写真・動画のお問い合わせ'],
+      ['メールアドレス', 'ご自身のメールアドレス'],
+    ],
+    note: '写真はメール欄のアドレスへ送付されます。\nファイルのやり取りもそちらで行います。',
+    warning: '⚠️ 形式に沿っていないメールは予告なく削除いたします ⚠️',
+  },
+  {
+    flag: '🇨🇳', label: '中文',
+    greeting: '感谢您对我的作品感兴趣！',
+    desc: '如需合作或咨询照片/视频相关事宜，\n请按以下格式发送邮件！',
+    format: [
+      ['姓名', '您的姓名'],
+      ['目的', '例）关于照片/视频的咨询'],
+      ['您的邮箱', '邮箱地址'],
+    ],
+    note: '照片将发送至您填写的邮箱，\n文件相关沟通也将通过该邮箱进行。',
+    warning: '⚠️ 未按格式发送的邮件将不作通知直接删除 ⚠️',
+  },
+]
+
 function App() {
   return (
     <div className="portfolio">
+      {/* 수중 배경 */}
+      <div className="underwater-bg" aria-hidden="true">
+        <div className="light-rays" />
+        {[8,5,3,12,7,4,10,6,2,9,11,5,8,3].map((size, i) => (
+          <div key={i} className="bubble" style={{
+            '--delay': `${(i * 0.65).toFixed(1)}s`,
+            '--left':  `${(i * 7 + 5) % 95}%`,
+            '--size':  `${size}px`,
+            '--speed': `${5 + (i % 5) * 1.5}s`,
+          }} />
+        ))}
+      </div>
+
       {/* 네비게이션 */}
       <nav className="nav">
         <span className="nav-logo">RTB</span>
@@ -28,7 +92,12 @@ function App() {
             <a href="#contact" className="btn btn-outline">연락하기</a>
           </div>
         </div>
-        <div className="hero-avatar">🐳</div>
+        <div className="hero-avatar">
+          <img src="https://i.imgur.com/EIxVBBI.png" alt="라면 먹는 벨루가" />
+        </div>
+        <div className="ocean-layer ocean-layer-1" />
+        <div className="ocean-layer ocean-layer-2" />
+        <div className="ocean-layer ocean-layer-3" />
       </section>
 
       {/* 작업물 */}
@@ -64,12 +133,37 @@ function App() {
       {/* 문의 */}
       <section className="section" id="contact">
         <h2 className="section-title">문의</h2>
-        <p className="contact-desc">
-          협업을 원하시거나 사진/동영상에 대해서 문의를 원하신다면 아래에 본인의 이메일과 함께 문의할 내용을 남겨주세요! 빠른 시일 내에 답변드리겠습니다. 감사합니다!<br />
-          If you'd like to collaborate or have any inquiries about photos/videos, please leave your email along with your message below! I will get back to you as soon as possible. Thank you!<br />
-          コラボをご希望の方や写真・動画についてお問い合わせがある方は、メールアドレスとお問い合わせ内容を下記にお残しください！できる限り早くご返信いたします。ありがとうございます！<br />
-          如果您希望合作或对照片/视频有任何疑问，请在下方留下您的邮箱和咨询内容！我会尽快回复您。谢谢！
-        </p>
+        <p className="contact-intro">아래 형식에 맞춰 이메일로 문의해주세요</p>
+        <div className="contact-flag-row">
+          <span>🇰🇷</span>
+          <span>🇺🇸</span>
+          <span>🇯🇵</span>
+          <span>🇨🇳</span>
+        </div>
+        <div className="contact-lang-grid">
+          {langs.map((lang, i) => (
+            <div key={i} className="contact-lang-card">
+              <div className="lang-card-header">
+                <span className="lang-flag">{lang.flag}</span>
+                <span className="lang-name">{lang.label}</span>
+              </div>
+              <p className="lang-greeting">{lang.greeting}</p>
+              <p className="lang-desc">{lang.desc}</p>
+              <div className="lang-format">
+                {lang.format.map(([key, val], j) => (
+                  <div key={j} className="format-row">
+                    <span className="format-key">{key}</span>
+                    <span className="format-colon"> : </span>
+                    <span className="format-val">{val}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="lang-note">{lang.note}</p>
+              <div className="lang-warning">{lang.warning}</div>
+            </div>
+          ))}
+        </div>
+        <div className="contact-form-divider">폼으로 바로 문의하기</div>
         <form
           className="contact-form"
           action="https://formspree.io/f/mzdkeagl"
@@ -102,7 +196,7 @@ function App() {
             <input type="text" name="name" placeholder="이름" required />
             <input type="email" name="email" placeholder="이메일" required />
           </div>
-          <textarea name="message" placeholder="메시지를 입력해주세요." rows={5} required />
+          <textarea name="message" placeholder="어떤 목적으로 방문하셨나요?" rows={5} required />
           <button type="submit" className="btn btn-primary">보내기</button>
         </form>
       </section>
